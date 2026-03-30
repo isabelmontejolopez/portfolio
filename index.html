@@ -41,7 +41,8 @@
       letter-spacing: -0.01em;
     }
     .page { display: none; min-height: 100vh; }
-    .page.active { display: block; }
+    .page.active { display: block; animation: pageIn 0.3s ease forwards; }
+    @keyframes pageIn { from { opacity: 0; } to { opacity: 1; } }
 
     /* NAV */
     nav {
@@ -711,7 +712,13 @@
     document.querySelectorAll('.page').forEach(function(p) { p.classList.remove('active'); });
     var target = document.getElementById('page-' + id);
     if (target) target.classList.add('active');
-    window.scrollTo(0, 0);
+    document.documentElement.style.scrollBehavior = 'auto';
+    document.body.style.scrollBehavior = 'auto';
+    window.scrollTo({ top: 0, behavior: 'instant' });
+    setTimeout(function() {
+      document.documentElement.style.scrollBehavior = '';
+      document.body.style.scrollBehavior = '';
+    }, 50);
     var burger = document.getElementById('nav-burger');
     var drawer = document.getElementById('nav-drawer');
     if (burger) burger.classList.remove('open');
