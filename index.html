@@ -46,13 +46,13 @@
       --nav: 72px;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; overflow-x: hidden; }
+    html { scroll-behavior: smooth; overflow-x: clip; }
     body {
       font-family: var(--sans);
       font-weight: var(--light);
       background: #fff;
       color: var(--black);
-      overflow-x: hidden;
+      overflow-x: clip;
       -webkit-font-smoothing: antialiased;
       letter-spacing: -0.01em;
     }
@@ -429,7 +429,8 @@
     .fcopy { font-family:var(--sans); font-size:14px; font-weight:var(--light); letter-spacing:-0.01em; text-align:center; color:#888; }
 
     /* PROJECT PAGES */
-    .back-btn { display:inline-flex; align-items:center; gap:8px; font-family:var(--sans); font-size:14px; font-weight:var(--light); cursor:pointer; padding:0 var(--ph); height:56px; border-bottom:1px solid var(--border); text-decoration:none; color:var(--black); background:#fff; position:sticky; top:var(--nav); z-index:90; width:100%; }
+    .back-btn { display:inline-flex; align-items:center; gap:8px; font-family:var(--sans); font-size:14px; font-weight:var(--light); cursor:pointer; padding:0 var(--ph); height:56px; border-bottom:1px solid var(--border); text-decoration:none; color:var(--black); background:#fff; position:-webkit-sticky; position:sticky; top:var(--nav); z-index:90; width:100%; }
+    .page .back-btn { position:-webkit-sticky; position:sticky; top:var(--nav); }
     .back-btn:hover { opacity:.55; }
     .proj-header { padding:100px var(--ph) 60px; border-bottom:1px solid var(--border); }
     .proj-title { font-family:var(--serif); font-size:clamp(40px,5vw,72px); font-weight:var(--light); letter-spacing:-0.02em; line-height:1.1; max-width:900px; }
